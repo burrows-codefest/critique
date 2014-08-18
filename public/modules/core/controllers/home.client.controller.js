@@ -8,9 +8,8 @@ angular.module('core').controller('HomeController', [
 
     $scope.authentication = Authentication;
 
-    $scope.gitUser = 'Ben';
-
-    $http.get(gitUrl, {headers: { 'Authorization': 'token ' + $scope.authentication.user.providerData.accessToken }}).
+    $http.get(gitUrl,
+        {headers: { 'Authorization': 'token ' + $scope.authentication.user.providerData.accessToken }}).
         success(function (data) {
           $scope.gitUser = data;
         });
