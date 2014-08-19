@@ -7,14 +7,15 @@ angular.module('core').directive('crShowPullRequests', [
     return {
       restrict: 'E',
       template: '<div ng-repeat="pr in pullRequests">' +
-          '({{ pr.state }}) - {{ pr.title }}' +
-          '<table><tr ng-repeat="comment in pullRequests.comments">' +
-          '<td><img ng-src="{{ comment.user.avatar_url }}" width="50" height="50" /></td>' +
-          '<td>{{ comment.user.login }}</td>' +
-          '<td>{{ comment.body }}</td>' +
-          '<td><a ng-href="{{comment.html_url}}">View</a></td>' +
-          '<td>{{ comment.created_at }}</td>' +
-          '</tr></table>' +
+          '<h3>{{ pr.title }} ({{ pr.state }})</h3>' +
+          '<div ng-hide="pullRequests.comments">No comments</div>' +
+          '<div class="row" ng-repeat="comment in pullRequests.comments">' +
+          '<div class="col-md-1"><img ng-src="{{ comment.user.avatar_url }}" width="50" height="50" /></div>' +
+          '<div class="col-md-1">{{ comment.user.login }}</div>' +
+          '<div class="col-md-4">{{ comment.body }}</div>' +
+          '<div class="col-md-1"><a ng-href="{{comment.html_url}}">View</a></div>' +
+          '<div class="col-md-2">{{ comment.created_at | date:"fullDate" }}</div>' +
+          '</div>' +
           '</div>',
       scope: {
         'crRepo': '='
