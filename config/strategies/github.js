@@ -14,6 +14,7 @@ module.exports = function() {
 	passport.use(new GithubStrategy({
 			clientID: config.github.clientID,
 			clientSecret: config.github.clientSecret,
+      scope: ['user', 'repo'],
 			callbackURL: config.github.callbackURL,
 			passReqToCallback: true
 		},

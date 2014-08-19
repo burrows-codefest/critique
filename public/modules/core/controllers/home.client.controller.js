@@ -4,14 +4,18 @@
 angular.module('core').controller('HomeController', [
   '$scope', 'Authentication', '$http',
   function ($scope, Authentication, $http) {
-    var gitUrl = 'https://api.github.com/user/repos';
+    var gitUrl = 'https://api.github.com/',
+        userUrl = 'user';
 
-    $scope.authentication = Authentication;
+    $http.defaults.headers.common.Authorization = 'token ' + Authentication.user.providerData.accessToken;
 
-    $http.get(gitUrl,
-        {headers: { 'Authorization': 'token ' + $scope.authentication.user.providerData.accessToken }}).
-        success(function (data) {
-          $scope.gitUser = data;
-        });
+    $http.get(gitUrl + userUrl).success(function (data) {
+      $scope.gitUser = data;
+    });
+
+    $http.get(gitUrl + 'user/subscriptions?page=2').success(function (data) {
+      $scope.repos = data;
+      console.log(data);
+    });
   }
 ]);
