@@ -6,17 +6,7 @@ angular.module('core').directive('crShowPullRequests', [
   function (Authentication, $http) {
     return {
       restrict: 'E',
-      template: '<div ng-repeat="pr in pullRequests">' +
-          '<h3>{{ pr.title }} ({{ pr.state }})</h3>' +
-          '<div ng-hide="pullRequests.comments">No comments</div>' +
-          '<div class="row" ng-repeat="comment in pullRequests.comments">' +
-          '<div class="col-md-1"><img ng-src="{{ comment.user.avatar_url }}" width="50" height="50" /></div>' +
-          '<div class="col-md-1">{{ comment.user.login }}</div>' +
-          '<div class="col-md-4">{{ comment.body }}</div>' +
-          '<div class="col-md-1"><a ng-href="{{comment.html_url}}">View</a></div>' +
-          '<div class="col-md-2">{{ comment.created_at | date:"fullDate" }}</div>' +
-          '</div>' +
-          '</div>',
+      templateUrl: 'modules/core/directives/templates/showPullRequests.client.view.html',
       scope: {
         'crRepo': '='
       },
