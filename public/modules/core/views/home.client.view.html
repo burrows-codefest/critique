@@ -1,6 +1,9 @@
 <section data-ng-controller="HomeController">
-	<h1>{{ gitUser.login }}</h1>
-    <div ng-repeat="repo in repos">
-        {{ $index }}: {{ repo.name }}
+	<h1>{{ authentication.user.providerData.login }}</h1>
+    <div ng-repeat="repo in repos | orderBy: '-open_issues_count'">
+        {{ $index }}: {{ repo.name }} ({{ repo.open_issues_count }})
+        <br />
+        <cr-show-pull-requests cr-repo="repo.full_name"></cr-show-pull-requests>
+        <br /><br />
     </div>
 </section>
