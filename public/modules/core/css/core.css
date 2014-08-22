@@ -13,3 +13,12 @@
 .ng-valid.ng-dirty{
     border-color:#78FA89;
 }
+.pr-summary {
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+}
+
+.pr-summary img {
+    margin-bottom: 10px;
+}

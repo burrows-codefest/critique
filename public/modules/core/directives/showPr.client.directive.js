@@ -17,7 +17,6 @@ angular.module('core').directive('crShowPullRequests', [
 
         $http.get('https://api.github.com/repos/' + scope.crRepo + '/pulls').success(function (data) {
           if (data.length < 1) {
-            console.log('no pull requests');
             scope.crRepoShow = false;
           }
 

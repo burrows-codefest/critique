@@ -1,13 +1,11 @@
-<div ng-repeat="pr in pullRequests">
-    <h3>{{ pr.title }} ({{ pr.state }})</h3>
+<div ng-repeat="pr in pullRequests" class="pr-summary">
+    <b><i><a ng-href="{{pr.html_url}}" target="_blank">{{ pr.title }}</a> ({{ pr.state }})</i></b>
 
     <div ng-hide="pullRequests.comments">No comments</div>
 
     <div class="row" ng-repeat="comment in pullRequests.comments | orderBy: 'created_at'">
-        <div class="col-md-1"><img ng-src="{{ comment.user.avatar_url }}" width="50" height="50"/></div>
-        <div class="col-md-1">{{ comment.user.login }}</div>
-        <div class="col-md-4">{{ comment.body }}</div>
-        <div class="col-md-1"><a ng-href="{{comment.html_url}}">View</a></div>
-        <div class="col-md-3">{{ comment.created_at | date:"hh:mm:ss a EEEE, MMMM d, y" }}</div>
+        <div class="col-md-1"><img ng-src="{{ comment.user.avatar_url }}" width="50" height="50" title="{{ comment.user.login }}" /></div>
+        <div class="col-md-4"><a ng-href="{{comment.html_url}}" target="_blank">{{ comment.body }}</a></div>
+        <div class="col-md-3">{{ comment.created_at | date:"hh:mm:ss a d/MM/y" }}</div>
     </div>
 </div>
