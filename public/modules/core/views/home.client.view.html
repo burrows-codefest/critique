@@ -1,7 +1,8 @@
 <section data-ng-controller="HomeController">
-	<h1>{{ authentication.user.providerData.login }}</h1>
-    <div ng-repeat="repo in repos | orderBy: '-open_issues_count'">
+    <h1>Pull Requests</h1>
+
+    <div ng-repeat="repo in repos | orderBy: '-open_issues_count'" ng-show="repo.repoShow">
         <h2>{{ repo.name }}</h2>
-        <cr-show-pull-requests cr-repo="repo.full_name"></cr-show-pull-requests>
+        <cr-show-pull-requests cr-repo="repo.full_name" cr-repo-show="repo.repoShow"></cr-show-pull-requests>
     </div>
 </section>
