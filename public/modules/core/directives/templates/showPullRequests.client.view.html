@@ -8,6 +8,6 @@
             <img ng-src="{{ comment.user.avatar_url }}" width="50" height="50" align="left" title="{{ comment.user.login }}" />
             <a ng-href="{{comment.html_url}}" target="_blank">{{ comment.body }}</a>
         </div>
-        <div class="col-md-3">{{ comment.created_at | date:"hh:mm:ss a d/MM/y" }}</div>
+        <div class="col-md-2 pr-date">{{ comment.created_at | date:"hh:mm:ss a d/MM/y" }}</div>
     </div>
 </div>

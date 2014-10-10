@@ -22,3 +22,7 @@
 .pr-summary img {
     margin: 0 10px 10px 0;
 }
+
+.pr-summary .pr-date {
+    font-size: 11px;
+}
