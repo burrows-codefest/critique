@@ -1,12 +1,11 @@
 'use strict';
 
-
-angular.module('core').directive('crShowPullRequests', [
+angular.module('github').directive('crShowPullRequests', [
   'Authentication', '$http',
   function (Authentication, $http) {
     return {
       restrict: 'E',
-      templateUrl: 'modules/core/directives/templates/showPullRequests.client.view.html',
+      templateUrl: 'modules/github/directives/templates/showPullRequests.client.view.html',
       scope: {
         'crRepo': '=',
         'crRepoShow': '='
