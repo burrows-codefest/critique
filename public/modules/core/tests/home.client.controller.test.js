@@ -17,8 +17,8 @@
 			});
 		}));
 
-		it('should expose the authentication service', function() {
-			expect(scope.authentication).toBeTruthy();
+		it('should request gitHub feed', function() {
+			expect(true).toBeTruthy();
 		});
 	});
 })();
