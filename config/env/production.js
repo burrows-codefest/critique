@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://localhost/critique',
+	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ds056727.mongolab.com:56727/critique',
 	assets: {
 		lib: {
 			css: [
@@ -44,9 +44,9 @@ module.exports = {
 		callbackURL: 'http://localhost:3000/auth/linkedin/callback'
 	},
 	github: {
-		clientID: process.env.GITHUB_ID || 'APP_ID',
-		clientSecret: process.env.GITHUB_SECRET || 'APP_SECRET',
-		callbackURL: 'http://localhost:3000/auth/github/callback'
+    clientID: process.env.GITHUB_ID || '0d99fc8b8261b9716c0a',
+    clientSecret: process.env.GITHUB_SECRET || '6bdcfb86741c1b6e1ea5d0a9ca47fb9a7eea9bcd',
+    callbackURL: 'http://critique.azurewebsites.net/auth/github/callback'
 	},
 	mailer: {
 		from: process.env.MAILER_FROM || 'MAILER_FROM',
